@@ -1,4 +1,4 @@
-# notification
+# Flutter notification
 
 Store device keys and send a notification
 

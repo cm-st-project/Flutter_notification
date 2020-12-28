@@ -27,11 +27,12 @@ Steps for sendind notification:
     ....
 ```
 7. Go to Android Manifest and add:
-
+```
   - <intent-filter>
        <action android:name="FLUTTER_NOTIFICATION_CLICK"/>
        <category android:name="android.intent.category.DEFAULT"/>
     </intent-filter>
+```
 
 8. Go to android/app/build.gradle and add :
 ```

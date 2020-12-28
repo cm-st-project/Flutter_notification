@@ -37,13 +37,14 @@ class Server {
 
   Future<String> updateName(String name) async {
     print('reset name:' + name);
-    var user =  await _firebaseAuth.currentUser;
+    var user =  _firebaseAuth.currentUser;
     databaseReference.reference().child("/users/" + user.uid + "/name").set(name);
+    return user.toString();
   }
 
   Future<String> resetPassword(String email, String newPassword) async {
     print('reset password: ' + email);
-    var user =  await _firebaseAuth.currentUser;
+    var user =  _firebaseAuth.currentUser;
     print('email' +user.email);
     if (user.email == email) {
       user.updatePassword(newPassword);
@@ -54,7 +55,7 @@ class Server {
 
   Future<String> saveDeviceToken() async {
     await Future.delayed(Duration(seconds: 2));
-    var user =  await _firebaseAuth.currentUser;
+    var user =   _firebaseAuth.currentUser;
     String fcmToken = await _firebaseMessaging.getToken();
 
     if (fcmToken != null) {
